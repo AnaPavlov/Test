@@ -1,0 +1,14 @@
+@import url('https://fonts.googleapis.com/css?family=Caveat&display=swap');
+
+.header {
+    width: 100%;
+}
+
+.header h2 {
+    background-color: #22333A;
+    color: white;
+    margin: 0;
+    text-align: left;
+    font-size: 1.8rem;
+    font-family: 'Caveat', serif;
+}

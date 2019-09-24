@@ -1,32 +1,67 @@
-import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import React, { Component } from 'react';
 
-function App() {
-  return (
-    <div className="App">
-      <h1>:)))))))))</h1>
-      <p>Csak amikor meghallotta
+import Header from './Components/Header/Header';
+import NewTask from './Components/NewTask/NewTask';
+import Tasks from './Components/Tasks/Tasks';
+import Layout from './Components/Layout/Layout';
+import ClearBtn from './Components/ClearBtn/ClearBtn';
 
-Torkában a vad gyilkot
+class App extends Component {
+  state = {
+    tasks: []
+  };
 
-A piros függöny-zuhatag
+  addTaskHandler = event => {
+    event.preventDefault();
+    const newTask = { task: event.target.inpTask.value, isChecked: false };
+    event.target.inpTask.value = '';
+    const tasks = [...this.state.tasks, newTask];
+    this.setState({
+      tasks: tasks
+    });
+  };
 
-Magyarázta meg neki mire ment a játék
+  handleDeleteTask = index => {
+    const tasks = [...this.state.tasks];
+    tasks.splice(index, 1);
+    this.setState({
+      tasks: tasks
+    });
+  };
 
-És sajnálta már
+  clearBtnHandler = () => {
+    const confirmation = window.confirm(
+      'Are you sure you want to delete all tasks?'
+    );
+    if (confirmation) {
+      this.setState({
+        tasks: []
+      });
+    }
+  };
 
-Hogy kiszabadította magát
+  toggleCheckedHandler = index => {
+    const tasks = [...this.state.tasks];
+    tasks[index].isChecked = !tasks[index].isChecked;
+    this.setState({
+      tasks: tasks
+    });
+  };
 
-A pocsolya öléből
-
-És hogy este a mezőről
-
-Olyan szeles örömmel rohant
-
-Rohant a sárga kapu felé.</p>
-    </div>
-  );
+  render() {
+    return (
+      <Layout>
+        <Header tasks={this.state.tasks} />
+        <NewTask submit={this.addTaskHandler} />
+        <Tasks
+          tasks={this.state.tasks}
+          click={this.handleDeleteTask}
+          toggleChecked={this.toggleCheckedHandler}
+        />
+        <ClearBtn clear={this.clearBtnHandler} tasks={this.state.tasks} />
+      </Layout>
+    );
+  }
 }
 
 export default App;

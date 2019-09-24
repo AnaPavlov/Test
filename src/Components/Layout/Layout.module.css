@@ -1,0 +1,35 @@
+@import url('https://fonts.googleapis.com/css?family=Cabin&display=swap');
+
+.Layout {
+  text-align: center;
+  width: 100%;
+  height: 100vh;
+  padding-top: 30px;
+  background-color: #22333A;
+  background-image: url('../../assets/rocket.jpg');
+  background-repeat: no-repeat;
+  background-position: center bottom;
+}
+
+.wrapper {
+  width: 45%;
+  min-width: 300px;
+  margin: 20px auto;
+  height: auto;
+  max-height: 90vh;
+  overflow-y: auto;
+  background-color: rgba(230, 230, 230, 0.6);
+  font-family: 'Cabin', sans-serif;
+}
+
+@media (max-width: 1020px) {
+  .wrapper {
+    width: 60%;
+  }
+}
+
+@media (max-width: 600px) {
+  .wrapper {
+    width: 85%;
+  }
+}

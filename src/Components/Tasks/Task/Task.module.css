@@ -1,0 +1,24 @@
+.task {
+    margin: 7px;
+    padding: 5px; 
+    height: 30px;
+    border: 1px solid #ccc;
+    border-radius: 10px;
+    background-color: rgba(252, 252, 252, 0.685);
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.task > div {
+    display: flex;
+    align-items: center;
+}
+
+.trashIcon {
+    color: #D4753F;;
+}
+
+input:checked + p {
+    text-decoration-line: line-through;
+}
