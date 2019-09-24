@@ -1,7 +1,6 @@
 .task {
     margin: 7px;
     padding: 5px; 
-    height: 30px;
     border: 1px solid #ccc;
     border-radius: 10px;
     background-color: rgba(252, 252, 252, 0.685);
@@ -13,10 +12,17 @@
 .task > div {
     display: flex;
     align-items: center;
+    width: 90%;
 }
 
 .trashIcon {
     color: #D4753F;;
+}
+
+.task p {
+    max-width: 98%;
+    overflow-wrap: break-word;
+    text-align: left;
 }
 
 input:checked + p {
